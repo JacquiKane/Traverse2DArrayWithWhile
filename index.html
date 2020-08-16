@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="gameon.css">
+    <script type="text/javascript" src="gameon.js"></script>
+    <title>Traversing 2D Arrays</title>
+    <style>
+        .eyeson {
+            width: 30px;
+            height: 40px;
+        }
+        
+        .backing {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .topicFace {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: large;
+        }
+        
+        .formattedPara {
+            padding: 5px;
+        }
+        /* Flip Cards CSS */
+        
+        .card-container {
+            display: grid;
+            perspective: 700px;
+        }
+        
+        .card-flip {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            grid-template-areas: "frontAndBack";
+            transform-style: preserve-3d;
+            transition: all 0.7s ease;
+        }
+        
+        .card-flip div {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .front {
+            grid-area: frontAndBack;
+        }
+        
+        .back {
+            grid-area: frontAndBack;
+            transform: rotateY(-180deg);
+        }
+        
+        .card-container:hover .card-flip {
+            transform: rotateY(180deg);
+        }
+        
+        .cardimage {
+            width: 75%;
+            height: 50px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cardblockformat {
+            padding: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="boldface">A While Loop ... To List The Players</h2>
+        <p>An intern at Tottenham Hotspurs soccer club created a 2D array, populated from a database, to store next season's players. We don't have access to their database, so we have simulated the population of the 2D array by plugging in a set of players,
+            in a <a href="seedplayersrm.html">seed method</a>. Your task? Create code that uses a <span class="topicface">nested
+                while loop</span> to list player name, age and position. Mouse over the solution card to check your code, only if you need to!
+        </p>
+        <div class="row row-cols-3 row-cols-s-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-3">
+
+            <div id="card1" class="col">
+                <h4>Row Major Order</h4>
+                <section class="card mb-5" id="rowmajor">
+                    <img id="playersRM" class="img-fluid backing" src="images\2dplayers.png">
+                    <img class="eyeson" id="eyesRM" src="images\eyes.png" alt="Eyes See You Row Major" />
+                    <p class="cardblockformat">Start at row 0, column 0. Progess to last row and last column. The <b>number of rows</b> is the
+                        <b>length of the 2D array</b>. The <b>number of columns</b> is the <b>length of any row</b>.
+                    </p>
+                </section>
+
+            </div>
+
+            <div id="card2" class="col">
+                <h4>The Strategy</h4>
+                <section class="card mb-5 cardblockformat" id="representation">
+                    <p class="formattedPara">Listing the players requires traversal of the 2D array, iterating through the rows, and for each row, iterating through the columns. A nested loop facilitates this nicely! Try it for yourself first, mouse over the card to the right,
+                        to compare your solution. Remember that each element of the 2D array is accessed by the row and the column. In this case, each element is also an object, instantiated from class, SoccerPlayer. Here is the pseudo-code ...
+                        <pre>
+<b>
+call the seeding method, initialize 2D array
+
+while ... check number of rows
+    while ... check number of columns
+        print player name, age, position
+        increase inner loop variable
+    increase outer loop variable
+</b>
+                        </pre>
+                    </p>
+                </section>
+            </div>
+
+            <!-- Card 0 -->
+            <div class="col-md-4 card-container">
+                <div class="card-flip">
+                    <!-- Card 0 Front -->
+                    <div class="card front">
+                        <div class="card-header">
+                            <span class="topicFace">Solution Card</span>
+                        </div>
+                        <img class="cardimage img-fluid" src="images/questionsanswers.png" class="card-img-top img-fluid">
+                        <span class="fa fa-4x fa-smile-o text-center"></span>
+                        <div class="card-block cardblockformat">
+
+                            <h6 class="card-subtitle mb-2 text-muted text-center"><b>Mouse Over To Check Your Code</b></h6>
+                            <br>
+                            <h6 class="card-subtitle text-center">Have You Used A Nested Loop?</h6>
+                            <h6 class="card-subtitle text-center">If not, review your solution ...</h6>
+                        </div>
+                    </div>
+                    <!-- End Card 0 Front -->
+
+                    <!-- Card 0 Back -->
+                    <div class="card back">
+                        <div class="card-block cardblockformat">
+                            <div class="card-header">
+                                2D Array Traversal, Row-Major Order
+                            </div>
+                            <!--          <h6 class="card-subtitle mb-2 text-muted">Create</h6>-->
+                            <p class="card-text">
+                                <pre>
+// Traversing a 2D array, row-major order, 
+// and a while loop ... and soccer players    
+public static void traverseRMOWhileLoop() {
+
+ SoccerPlayer[][] players = seedPlayers();
+ int row = 0;
+ while (row &lt; players.length) {
+   int col = 0;
+   while (col &lt; players[0].length) {
+     SoccerPlayer player = players[row][col];
+     System.out.println(player.getName() + " is " + 
+                        player.getAge() + 
+                        " years old and plays as a " + 
+                        player.getPosition());
+    col++;
+    }
+   row++;
+   }
+}   
+                            </pre>
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- End Card 0 Back -->
+
+
+                </div>
+
+
+                <!-- Row -->
+            </div>
+            <!-- Container -->
+
+</body>
+
+</html>

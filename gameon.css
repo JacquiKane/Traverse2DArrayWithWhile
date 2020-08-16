@@ -1,0 +1,11 @@
+#eyesRM {
+    top: 100px;
+    left: 100px;
+    position: absolute;
+}
+
+#eyesCM {
+    top: 5px;
+    left: 5px;
+    position: absolute;
+}

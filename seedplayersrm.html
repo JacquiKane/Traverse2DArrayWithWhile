@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="gameon.css">
+    <script type="text/javascript" src="gameon.js"></script>
+    <title>Traversing 2D Arrays</title>
+    <style>
+        .eyeson {
+            width: 30px;
+            height: 40px;
+        }
+        
+        .backing {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .topicFace {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: large;
+        }
+        
+        .formattedPara {
+            padding: 5px;
+        }
+        /* Flip Cards CSS */
+        
+        .card-container {
+            display: grid;
+            perspective: 700px;
+        }
+        
+        .card-flip {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            grid-template-areas: "frontAndBack";
+            transform-style: preserve-3d;
+            transition: all 0.7s ease;
+        }
+        
+        .card-flip div {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .front {
+            grid-area: frontAndBack;
+        }
+        
+        .back {
+            grid-area: frontAndBack;
+            transform: rotateY(-180deg);
+        }
+        
+        .card-container:hover .card-flip {
+            transform: rotateY(180deg);
+        }
+        
+        .cardimage {
+            width: 75%;
+            height: 50px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cardblockformat {
+            padding: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <pre>
+public static SoccerPlayer[][] seedPlayers() {
+
+    SoccerPlayer[][] allTeams;
+    // Create a 2D array of SoccerPlayers, 3 rows, 3 columns
+    allTeams = new SoccerPlayer[3][3];
+
+    allTeams[0][0] = new SoccerPlayer("Harry Kane", 26, "Forward", "Tottenham Hotspurs");
+    allTeams[0][1] = new SoccerPlayer("Gedson Fernandes", 21, "Midfielder", "Tottenham Hotspurs");
+    allTeams[0][2] = new SoccerPlayer("Alfie Whiteman", 21, "Goalee", "Tottenham Hotspurs");
+
+    allTeams[1][0] = new SoccerPlayer("Troy Parrott", 17, "Forward", "Tottenham Hotspurs");
+    allTeams[1][1] = new SoccerPlayer("Giovani Lo Celso", 24, "Midfielder", "Tottenham Hotspurs");
+    allTeams[1][2] = new SoccerPlayer("Dele Alli", 24, "Midfielder", "Tottenham Hotspurs");
+
+    allTeams[2][0] = new SoccerPlayer("Lucas Moura", 27, "Forward", "Tottenham Hotspurs");
+    allTeams[2][1] = new SoccerPlayer("Oliver Skipp", 27, "Midfielder", "Tottenham Hotspurs");
+    allTeams[2][2] = new SoccerPlayer("Ryan Sessegnon", 20, "Forward", "Tottenham Hotspurs");
+
+    return allTeams;
+
+}
+ </pre>
+
+</body>
+
+</html>
